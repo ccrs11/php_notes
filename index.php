@@ -23,3 +23,21 @@ define ("PI", 3.1416);
 //declare a string constant
 define ("SALUDO", "Hola Mundo!");
 
+/**
+*Type of data
+*/
+//boolean
+$logueado =true;
+var_dump($logueado);
+//enteros
+$numero=200;
+var_dump($numero);
+//floats
+$float =200.5;
+var_dump($float);
+//strings
+$nombre="juan";
+// array
+$array = [];
+var_dump($array);
+
