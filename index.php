@@ -12,3 +12,14 @@ $text ='mundo';
 printf("Hola %s", $texto);
 var_dump($text);
 //%s continue with a string value
+/**
+  * Variables and constants
+*/
+
+//declare a variable
+$edad=25;
+//declare a constant
+define ("PI", 3.1416);
+//declare a string constant
+define ("SALUDO", "Hola Mundo!");
+
