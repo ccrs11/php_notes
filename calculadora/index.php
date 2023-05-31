@@ -1,3 +1,26 @@
+<?php
+//var_export($_POST);
+//echo "<br>";
+// $hola=var_dump($_POST);
+$buttons = [1, 2, 3, '+', 4, 5, 6, '-', 7, 8, 9, '*', 'C', 0, '/', '='];
+$pressed = '';
+
+if (isset($_POST['pressed']) && in_array($_POST['pressed'], $buttons)) {
+   $pressed = $_POST['pressed'];
+}
+$stored = '';
+if (isset($_POST['stored']) && preg_match('~^(?:[\d.]+[*/+-]?)+$~', $_POST['stored'], $out)) {
+   $stored = $out[0];
+}
+$display = $stored . $pressed;
+//echo "$pressed & $stored & $display<br>";
+if ($pressed == 'C') {
+   $display = '';
+} elseif ($pressed == '=' && preg_match('~^\d*\.?\d+(?:[*/+-]\d*\.?\d+)*$~', $stored)) {
+   $display .= eval("return $stored;");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,43 +34,44 @@
 
 <body>
    <h1>Calculator</h1>
-   <form name="calculator">
+   <form action="" name="calculator" method="POST">
       <table>
          <tr>
             <td colspan="4">
-               <input type="text" name="display" id="display" disabled placeholder="0">
+               <input type="text" name="stored" id="display" value="<?= $display ?>"placeholder="0">
             </td>
          </tr>
          <tr>
-            <td><input type="button" name="seven" value="7"></td>
-            <td><input type="button" name="eight" value="8"></td>
-            <td><input type="button" name="nine" value="9"></td>
-            <td><input type="button" class="operator" name="times" value="x">
+            <td><input type="submit" name="pressed" value="7"></td>
+            <td><input type="submit" name="pressed" value="8"></td>
+            <td><input type="submit" name="pressed" value="9"></td>
+            <td><input type="submit" class="operator" name="pressed" value="*">
             </td>
          </tr>
          <tr>
-            <td><input type="button" name="four" value="4"></td>
-            <td><input type="button" name="five" value="5"></td>
-            <td><input type="button" name="six" value="6"></td>
-            <td><input type="button" class="operator" name="minus" value="-">
+            <td><input type="submit" name="pressed" value="4"></td>
+            <td><input type="submit" name="pressed" value="5"></td>
+            <td><input type="submit" name="pressed" value="6"></td>
+            <td><input type="submit" class="operator" name="pressed" value="-">
             </td>
          </tr>
          <tr>
-            <td><input type="button" name="one" value="1"></td>
-            <td><input type="button" name="two" value="2"></td>
-            <td><input type="button" name="three" value="3"></td>
-            <td><input type="button" class="operator" name="plus" value="+">
+            <td><input type="submit" name="pressed" value="1"></td>
+            <td><input type="submit" name="pressed" value="2"></td>
+            <td><input type="submit" name="pressed" value="3"></td>
+            <td><input type="submit" class="operator" name="pressed" value="+">
             </td>
          </tr>
          <tr class="clear">
-            <td><input type="button" id="clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
-            <td><input type="button" name="zero" value="0"></td>
-            <td><input type="button" name="doit" value="="></td>
-            <td><input type="button" class="operator" name="div" value="/">
+            <td><input type="submit" id="clear" name="pressed" value="c"></td>
+            <td><input type="submit" name="pressed" value="0"></td>
+            <td><input type="submit" name="pressed" value="="></td>
+            <td><input type="submit" class="operator" name="pressed" value="/">
             </td>
          </tr>
       </table>
    </form>
+   
 </body>
 
 </html>

@@ -1,12 +1,12 @@
 body {
   padding: 0;
   margin: 0;
-  background-color:cornflowerblue;
+  background-color: lavender;
 }
 
 h1 {
   margin-left: 39vw;
-  color: rgb(220, 220, 220);
+  color: indigo;
   font-size: 3em;
 }
 
@@ -30,7 +30,8 @@ table {
   padding: 10px 4px;
   font-size: 28px;
   width: 250px;
-  color: rgb(206, 206, 206);
+  justify-content: end;
+  color: rgb(142, 12, 12);
   border-radius: 10px;
   box-shadow: 5px 5px 15px 2px rgba(148, 148, 148, .1);
 }
@@ -39,7 +40,7 @@ input {
   outline: none;
 }
 
-input[type=button] {
+input[type=submit] {
   font-family: sans-serif;
   padding: 0;
   width: 65px;
@@ -54,7 +55,7 @@ input[type=button] {
 }
 
 
-input[type=button]:hover {
+input[type=submit]:hover {
   color: rgb(0, 214, 252);
   box-shadow: 5px 5px 15px 2px rgba(34, 10, 255, .4);
   background: rgb(2,0,36); 
