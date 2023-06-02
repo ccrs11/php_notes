@@ -4,11 +4,15 @@
 // $hola=var_dump($_POST);
 $buttons = [1, 2, 3, '+', 4, 5, 6, '-', 7, 8, 9, '*', 'C', 0, '/', '='];
 $pressed = '';
-
 if (isset($_POST['pressed']) && in_array($_POST['pressed'], $buttons)) {
    $pressed = $_POST['pressed'];
 }
 $stored = '';
+if ($_POST['pressed']) && preg_match('~\/0~',$stored)) {
+   echo "Value contains /0";
+} else {
+   echo "Value does not contain /0";
+}
 if (isset($_POST['stored']) && preg_match('~^(?:[\d.]+[*/+-]?)+$~', $_POST['stored'], $out)) {
    $stored = $out[0];
 }
@@ -17,7 +21,8 @@ $display = $stored . $pressed;
 if ($pressed == 'C') {
    $display = '';
 } elseif ($pressed == '=' && preg_match('~^\d*\.?\d+(?:[*/+-]\d*\.?\d+)*$~', $stored)) {
-   $display .= eval("return $stored;");
+   $result=eval("return $stored;");
+   $display = $result;
 }
 ?>
 
@@ -63,7 +68,7 @@ if ($pressed == 'C') {
             </td>
          </tr>
          <tr class="clear">
-            <td><input type="submit" id="clear" name="pressed" value="c"></td>
+            <td><input type="submit" id="clear" name="pressed" value="C"></td>
             <td><input type="submit" name="pressed" value="0"></td>
             <td><input type="submit" name="pressed" value="="></td>
             <td><input type="submit" class="operator" name="pressed" value="/">
