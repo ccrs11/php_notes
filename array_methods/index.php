@@ -98,6 +98,17 @@ echo $input[$rand_keys[0]]. "  ";
 echo $input[$rand_keys[1]];
 echo '<br>';
 
+/**
+ * * array_unique(array $array, int $flags = SORT_STRING): array
+ * * delete all duplicate values
+ * * this method has some flags that are used to modify the comparison behavior 
+ * *SORT_REGULAR-normally ||SORT_NUMERIC-numerically ||SORT_STRING-strings ||SORT_LOCALE_STRING-based on the current locale.
+ * * No strict takes the first one
+ */
+$input = array(4, "4", "3", 4, 3, "3");
+$result = array_unique($input);
+var_dump($result);
+
 
 
 
