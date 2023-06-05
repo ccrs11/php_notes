@@ -8,21 +8,23 @@ if (isset($_POST['pressed']) && in_array($_POST['pressed'], $buttons)) {
    $pressed = $_POST['pressed'];
 }
 $stored = '';
-if ($_POST['pressed']) && preg_match('~\/0~',$stored)) {
-   echo "Value contains /0";
-} else {
-   echo "Value does not contain /0";
-}
+
 if (isset($_POST['stored']) && preg_match('~^(?:[\d.]+[*/+-]?)+$~', $_POST['stored'], $out)) {
    $stored = $out[0];
 }
+
 $display = $stored . $pressed;
 //echo "$pressed & $stored & $display<br>";
 if ($pressed == 'C') {
    $display = '';
 } elseif ($pressed == '=' && preg_match('~^\d*\.?\d+(?:[*/+-]\d*\.?\d+)*$~', $stored)) {
-   $result=eval("return $stored;");
-   $display = $result;
+   if (preg_match('~\/0~',$stored)) {
+      //echo "Value contains /0";
+      $display = 'syntax error';
+   } else{
+      $result=eval("return $stored;");
+      $display = $result;
+   }
 }
 ?>
 
