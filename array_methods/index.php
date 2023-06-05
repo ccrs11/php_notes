@@ -191,6 +191,20 @@ echo '<br>';
 print_r(array_chunk($input_array, 2, true));
 echo '<br>';
 
+/**
+ * * array_keys(array $array): array
+ * *array_keys(array $array, mixed $filter_value, bool $strict = false): array
+ * *array_keys() returns the keys, numeric and string, from the array.
+ * *if a filter_value is specified, then only the keys for that value are returned. Otherwise, all the keys from the array are returned. 
+ */
+$array = array(0 => 100, "color" => "red");
+print_r(array_keys($array));
+echo '<br>';
+$array = array("blue", "red", "green", "blue", "blue");
+print_r(array_keys($array, "blue"));
+echo '<br>';
+
+
 
 
 
