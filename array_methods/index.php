@@ -162,6 +162,16 @@ echo '<br>';
 print_r($preserved);
 echo '<br>';
 
+/**
+ * * array_sum(array $array): int|float
+ * * Returns the sum of values as an integer or float; 0 if the array is empty. 
+ */
+$a = array(2, 4, 6, 8);
+echo "sum(a) = " . array_sum($a) . "\n";
+echo '<br>';
+$b = array("a" => 1.2, "b" => 2.3, "c" => 3.4);
+echo "sum(b) = " . array_sum($b) . "\n";
+echo '<br>';
 
 
 
