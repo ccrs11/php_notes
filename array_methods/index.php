@@ -172,7 +172,14 @@ echo '<br>';
 $b = array("a" => 1.2, "b" => 2.3, "c" => 3.4);
 echo "sum(b) = " . array_sum($b) . "\n";
 echo '<br>';
-
+/**
+ * * array_product(array $array): int|float
+ * * Returns the product as an integer or float.
+ */
+$a = array(2, 4, 6, 8);
+echo "product(a) = " . array_product($a) . "\n";
+echo "product(array()) = " . array_product(array()) . "\n";
+echo '<br>';
 
 
 
