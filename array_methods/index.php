@@ -50,7 +50,16 @@ $d = array_map(null, $a, $b, $c);
 print_r($d);
 echo '<br>';
 
-
-
+/**
+ * * array_reduce(array $array, callable $callback, mixed $initial = null): mixed
+ * * iterative reduce an array to a value
+ * * works similar to reduce in js but here instead of four parameters has 3, the array, function and initial parameter
+ * *internally has a carry and and item, the carry its used to storage the calculations and the item is the continue value
+ */
+$as = array(1, 2, 3, 4, 5);
+//* I put one as start value becouse if the start value is 0 the final value will be 0 (0*any number = 0).
+$asr=array_reduce($as,fn($carry,$item)=>$carry *= $item,1);
+print_r($asr);
+echo '<br>';
 
 
