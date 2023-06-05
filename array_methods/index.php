@@ -71,5 +71,18 @@ $search_array = array('first' => null, 'second' => 4);
 isset($search_array['first']);
 //* returns true
 array_key_exists('first', $search_array);
+echo '<br>';
 
-
+/**
+ * * in_array(mixed $needle, array $haystack, bool $strict = false): bool
+ * * verify if a value ($needle) exists in an array ($haystack). a last option $strict it's to compare in strict manner when its true
+ * * if needle is a string, the comparison is done in a case-sensitive manner. 
+ */
+$anee = array('1.10', 12.4, 1.13);
+if (in_array('12.4', $anee, true)) {
+    echo "'12.4' found with strict check\n";
+}
+if (in_array(1.13, $anee, true)) {
+    echo "1.13 found with strict check\n";
+}
+echo '<br>';
