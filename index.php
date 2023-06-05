@@ -59,19 +59,87 @@ echo '<h4>while</h4>';
 //* The meaning of a while statement is simple. It tells PHP to execute the nested statement(s) repeatedly, as long as the while expression evaluates to true. 
 $i = 1;
 while ($i <= 10) {
-    echo $i++; 
+    echo $i++;
 }
 
+/**
+ * * do-while
+ */
+//* do-while loops are very similar to while loops, except the truth expression is checked at the end of each iteration instead of in the beginning.
+echo '<h4>do while</h4>';
+do {
+    if ($i < 5) {
+        echo "i is not big enough";
+        break;
+    }
+    $i *= $factor;
+    if ($i < $minimum_limit) {
+        break;
+    }
+    echo "i is ok";
+
+    /* process i */
+} while (0);
+echo "<br>";
 $i = 1;
 while ($i <= 10) :
     echo $i;
     $i++;
 endwhile;
 
+/**
+ * * bucle for 
+ * *  The first expression (expr1) is evaluated (executed) once unconditionally at the beginning of the loop.
+** In the beginning of each iteration, expr2 is evaluated. If it evaluates to true, the loop continues and the nested statement(s) are executed. If it evaluates to false, the execution of the loop ends. 
+ */
+echo '<h4>for</h4>';
+/* example 1 */
+
+for ($i = 1; $i <= 10; $i++) {
+    echo $i;
+}
+/* example 2 */
+
+for ($i = 1; ; $i++) {
+    if ($i > 10) {
+        break;
+    }
+    echo $i;
+}
+/* example 3 */
+$i = 1;
+for (; ; ) {
+    if ($i > 10) {
+        break;
+    }
+    echo $i;
+    $i++;
+}
+/* example 4 */
+for ($i = 1, $j = 0; $i <= 10; $j += $i, print $i, $i++);
+
+
+
+
 echo '<h4>foreach</h4>';
 /**
  * *foreach
+ * * The first form traverses the iterable given by iterable_expression. On each iteration, the value of the current element is assigned to $value. 
  */
 foreach ($variable as $key => $value) {
     //* #code...
+}
+
+$arr = array(1, 2, 3, 4);
+foreach ($arr as &$value) {
+    $value = $value * 2;
+}
+// $arr is now array(2, 4, 6, 8)
+
+// without an unset($value), $value is still a reference to the last item: $arr[3]
+
+foreach ($arr as $key => $value) {
+    // $arr[3] will be updated with each value from $arr...
+    echo "{$key} => {$value} ";
+    print_r($arr);
 }
