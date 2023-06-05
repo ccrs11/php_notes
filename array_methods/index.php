@@ -86,3 +86,18 @@ if (in_array(1.13, $anee, true)) {
     echo "1.13 found with strict check\n";
 }
 echo '<br>';
+
+/**
+ * * array_rand(array $array, int $num = 1): int|string|array
+ * * select one or more random entries out of an array 
+ * * When picking only one entry, array_rand() returns the key for a random entry. Otherwise, an array of keys for the random entries is returned. 
+ */
+$input = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
+$rand_keys = array_rand($input, 2);
+echo $input[$rand_keys[0]]. "  ";
+echo $input[$rand_keys[1]];
+echo '<br>';
+
+
+
+
