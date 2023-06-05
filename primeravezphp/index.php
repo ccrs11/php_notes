@@ -84,7 +84,7 @@ echo strlen($texto);
 //convert to uppercase
 echo strtoupper($nombreCliente);
 //convert to lowercase
-echo strlower($nombreCliente);
+echo strtolower($nombreCliente);
 
 $mail1= "correo@correo.com";
 $mail2= "Correo@correo.com";
@@ -96,8 +96,9 @@ echo str_replace('Juan','J',$nombreCliente);
 echo strpos($nombreCliente, 'Pedro');
 $tipoCliente="premium - Empresarial";
 
-echo "<br>"
+echo "<br>";
 
 echo "El Cliente " . $nombreCliente . "es" . $tipoCliente;
 
-echo "El Cliente {$nombreCliente} es ${tipoCliente}";
+//echo "El Cliente {$nombreCliente} es ${tipoCliente}";
+
