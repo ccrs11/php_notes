@@ -108,6 +108,18 @@ echo '<br>';
 $input = array(4, "4", "3", 4, 3, "3");
 $result = array_unique($input);
 var_dump($result);
+echo '<br>';
+
+/**
+ * *  array_intersect(array $array, array ...$arrays): array
+ * * Returns an array containing all of the values in array whose values exist in all of the parameters. 
+ */
+$array1 = array("a" => "green", "red", "blue");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_intersect($array1, $array2);
+print_r($result);
+echo '<br>';
+
 
 
 
