@@ -235,3 +235,5 @@ echo '<br>';
 echo "... and after:";
 echo '<br>';
 array_walk($fruits, 'test_print');
+
+//* these are all array functions.
