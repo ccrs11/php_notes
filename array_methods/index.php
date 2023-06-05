@@ -62,4 +62,14 @@ $asr=array_reduce($as,fn($carry,$item)=>$carry *= $item,1);
 print_r($asr);
 echo '<br>';
 
+/**
+ * * array_key_exists(string|int $key, array $array): bool
+ * * returns true if the given key is set in the array. if the key exists but the value its null also returns true
+ */
+$search_array = array('first' => null, 'second' => 4);
+//* returns false
+isset($search_array['first']);
+//* returns true
+array_key_exists('first', $search_array);
+
 
