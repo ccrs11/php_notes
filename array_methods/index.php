@@ -204,8 +204,13 @@ $array = array("blue", "red", "green", "blue", "blue");
 print_r(array_keys($array, "blue"));
 echo '<br>';
 
-
-
+/**
+ * * array_values(array $array): array
+ *  *Returns an indexed array of values. 
+ */
+$array = array("size" => "XL", "color" => "gold");
+print_r(array_values($array));
+echo '<br>';
 
 
 
