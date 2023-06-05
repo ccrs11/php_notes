@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  My Method
  * * Important information
@@ -9,7 +10,7 @@
 /**
  * *interchange the key and value information 
  */
-$array1 = array("a"=>"apple", "b"=>"banana");
+$array1 = array("a" => "apple", "b" => "banana");
 $flipResult = array_flip($array1);
 print_r($flipResult);
 echo '<br>';
@@ -31,7 +32,7 @@ echo '<br>';
  */
 $array2 = [6, 7, 8, 9, 10, 11, 12];
 echo "Odd :\n";
-print_r(array_filter($array2, fn($var) => $var & 1));
+print_r(array_filter($array2, fn ($var) => $var & 1));
 echo '<br>';
 
 /**
@@ -39,7 +40,7 @@ echo '<br>';
  * * returns an array containing the results of aplying the $callback to the $array or $arrays
  */
 //* one line; the array is determinated by the funtion range [1,2,3,4,5] and the lambda funtion fn($value): int => $value * 2 it's used as callback.
-print_r(array_map(fn($value): int => $value * 2, range(1, 5)));
+print_r(array_map(fn ($value): int => $value * 2, range(1, 5)));
 echo '<br>';
 
 //* null as a callback to generate an array of arrays
@@ -58,7 +59,7 @@ echo '<br>';
  */
 $as = array(1, 2, 3, 4, 5);
 //* I put one as start value becouse if the start value is 0 the final value will be 0 (0*any number = 0).
-$asr=array_reduce($as,fn($carry,$item)=>$carry *= $item,1);
+$asr = array_reduce($as, fn ($carry, $item) => $carry *= $item, 1);
 print_r($asr);
 echo '<br>';
 
@@ -94,7 +95,7 @@ echo '<br>';
  */
 $input = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
 $rand_keys = array_rand($input, 2);
-echo $input[$rand_keys[0]]. "  ";
+echo $input[$rand_keys[0]] . "  ";
 echo $input[$rand_keys[1]];
 echo '<br>';
 
@@ -142,7 +143,7 @@ echo '<br>';
 /**
  * *  array_pop(array &$array): mixed
  * * Returns the value of the last element of array. If array is empty, null will be returned. 
-*/
+ */
 $stack = array("orange", "banana", "apple", "raspberry");
 $fruit = array_pop($stack);
 print_r($stack);
@@ -184,7 +185,7 @@ echo '<br>';
 /**
  * * array_chunk(array $array, int $length, bool $preserve_keys = false): array
  * * Chunks an array into arrays with length elements. The last chunk may contain less than length elements. 
-*/
+ */
 $input_array = array('a', 'b', 'c', 'd', 'e');
 print_r(array_chunk($input_array, 2));
 echo '<br>';
@@ -212,5 +213,25 @@ $array = array("size" => "XL", "color" => "gold");
 print_r(array_values($array));
 echo '<br>';
 
+/**
+ ** array_walk(array|object &$array, callable $callback, mixed $arg = null): bool
+ ** Applies the user-defined callback function to each element of the array array. 
+ */
 
-
+$fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+function test_alter(&$item1, $key, $prefix)
+{
+    $item1 = "$prefix: $item1";
+}
+function test_print($item2, $key)
+{
+    echo "$key. $item2\n";
+}
+echo "Before ...:";
+echo '<br>';
+array_walk($fruits, 'test_print');
+array_walk($fruits, 'test_alter', 'fruit');
+echo '<br>';
+echo "... and after:";
+echo '<br>';
+array_walk($fruits, 'test_print');
