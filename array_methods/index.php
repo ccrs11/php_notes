@@ -130,6 +130,14 @@ $result = array_diff($array1, $array2);
 print_r($result);
 echo '<br>';
 
+/**
+ * *  array_push(array &$array, mixed ...$values): int
+ * *  Returns the new number of elements in the array. 
+ */
+$stack = array("orange", "banana");
+array_push($stack, "apple", "raspberry");
+print_r($stack);
+echo '<br>';
 
 
 
