@@ -12,7 +12,7 @@
 $array1 = array("a"=>"apple", "b"=>"banana");
 $flipResult = array_flip($array1);
 print_r($flipResult);
-echo "\n";
+echo '<br>';
 //* Array ( [apple] => a [banana] => b )
 
 /**
@@ -23,7 +23,7 @@ echo "\n";
  */
 $fill = array_fill(-2, 4, 'pear');
 print_r($fill);
-echo "\n";
+echo '<br>';
 
 /**
  * * array_filter(array $array, ?callable $callback = null, int $mode = 0): array
@@ -32,6 +32,10 @@ echo "\n";
 $array2 = [6, 7, 8, 9, 10, 11, 12];
 echo "Odd :\n";
 print_r(array_filter($array2, fn($var) => $var & 1));
+echo '<br>';
+
+
+
 
 
 
