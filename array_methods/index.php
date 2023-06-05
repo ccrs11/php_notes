@@ -139,6 +139,14 @@ array_push($stack, "apple", "raspberry");
 print_r($stack);
 echo '<br>';
 
+/**
+ * *  array_pop(array &$array): mixed
+ * * Returns the value of the last element of array. If array is empty, null will be returned. 
+*/
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_pop($stack);
+print_r($stack);
+echo '<br>';
 
 
 
