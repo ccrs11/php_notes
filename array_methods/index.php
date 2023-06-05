@@ -181,5 +181,17 @@ echo "product(a) = " . array_product($a) . "\n";
 echo "product(array()) = " . array_product(array()) . "\n";
 echo '<br>';
 
+/**
+ * * array_chunk(array $array, int $length, bool $preserve_keys = false): array
+ * * Chunks an array into arrays with length elements. The last chunk may contain less than length elements. 
+*/
+$input_array = array('a', 'b', 'c', 'd', 'e');
+print_r(array_chunk($input_array, 2));
+echo '<br>';
+print_r(array_chunk($input_array, 2, true));
+echo '<br>';
+
+
+
 
 
