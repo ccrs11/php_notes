@@ -1,5 +1,4 @@
 <?php
-
 /**
  ** 1.8 isset and empthy
  ** isset the variable is defined and it's value is null
@@ -143,3 +142,42 @@ foreach ($arr as $key => $value) {
     echo "{$key} => {$value} ";
     print_r($arr);
 }
+
+
+/**
+ * *Lesson 20230606
+ */
+
+//* user defined functions
+//* starts with the function definition (modular, reuse, specific use)
+//* useful to organize and simplify the program code
+
+//*function Identificador ([p1],[p2]...){
+//*Expresiones.....
+//*}
+
+//* function void -> do not returns a value
+
+//* declare(strict_types=1);
+//* this declare is used to force the data type definition
+function sumar(int $num1, int $num2):void{
+    echo $res=$num1+$num2;
+}
+
+//* function that returns a value
+function sumarr(int $num1, int $num2):int{
+    $res=$num1+$num2;
+    return $res;
+}
+//* its important the arguments order!
+
+//* other example
+function usuarioAutenticado(bool $autenticado):?string{
+//* The ? before string indicates that the return value can be nullable, 
+    if($autenticado){
+        return "El usuario está autenticado";
+    }else
+        return null;
+}
+
+?>
