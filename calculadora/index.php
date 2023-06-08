@@ -9,7 +9,7 @@ if (isset($_POST['pressed']) && in_array($_POST['pressed'], $buttons)) {
 }
 $stored = '';
 
-if (isset($_POST['stored']) && preg_match('~^(?:[\d.]+[*/+-]?)+$~', $_POST['stored'], $out)) {
+if (isset($_POST['stored']) && preg_match('~^(?:[-\d.]+[*/+-]?)+$~', $_POST['stored'], $out)) {
    $stored = $out[0];
 }
 
@@ -17,7 +17,7 @@ $display = $stored . $pressed;
 //echo "$pressed & $stored & $display<br>";
 if ($pressed == 'C') {
    $display = '';
-} elseif ($pressed == '=' && preg_match('~^\d*\.?\d+(?:[*/+-]\d*\.?\d+)*$~', $stored)) {
+} elseif ($pressed == '=' && preg_match('~^-?\d*\.?\d+(?:[*/+-]-?\d*\.?\d+)*$~', $stored)) {
    if (preg_match('~\/0~',$stored)) {
       //echo "Value contains /0";
       $display = 'syntax error';
