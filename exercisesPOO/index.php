@@ -1,0 +1,47 @@
+Desafío: Crea una clase abstracta llamada CuentaBancaria con los siguientes atributos y métodos:
+
+Atributos:
+
+$saldo: representa el saldo disponible en la cuenta.
+Métodos:
+
+depositar($monto): recibe un monto y lo agrega al saldo de la cuenta.
+retirar($monto): recibe un monto y lo resta del saldo de la cuenta. Asegúrate de validar que el saldo sea suficiente antes de realizar el retiro.
+Luego, crea dos clases hijas, CuentaCorriente y CuentaAhorros, que extiendan la clase CuentaBancaria. Cada clase hija debe implementar su propia lógica para los métodos depositar() y retirar().
+
+La clase CuentaCorriente debe permitir retiros incluso si el saldo es insuficiente, pero aplicando un cargo por sobregiro del 10% del monto retirado.
+
+La clase CuentaAhorros debe permitir retiros solo si el saldo es suficiente y no aplicar ningún cargo adicional.
+
+<?php
+abstract class CuentaBancaria{
+    protected $saldo;
+    /* 
+    function __construct($saldo)
+    {
+        $this->saldo=$saldo;
+    } */
+    function depositar($monto){
+        $this->saldo+=$monto;    
+    }
+    function retirar($monto){
+        if($this->saldo <= $monto)
+            echo "No tienes saldo suficiente";
+            return;
+        $this->saldo-=$monto;
+    }
+}
+
+class CuentaCorriente extends CuentaBancaria{
+
+    function retirar($monto){
+        if($this->saldo <= $monto)
+            
+            return;
+        $this->saldo-=$monto;
+    }
+}
+
+class CuentaAhorros extends CuentaBancaria{
+
+}
